@@ -1,0 +1,61 @@
+<!-- survey.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Survey</h1>
+  <p>This is our survey page.</p>
+<div class="container mt-5">
+  <h2>Household Chores Survey</h2>
+  <form>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter your name">
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Chore</th>
+          <th>Importance</th>
+          <th>Competence</th>
+          <th>Comfort</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for chore in chores %}
+        <tr>
+          <td>{{ chore }}</td>
+          <td>
+            <select class="form-control">
+              <option>Not Important</option>
+              <option>Somewhat Important</option>
+              <option>Important</option>
+              <option>Very Important</option>
+            </select>
+          </td>
+          <td>
+            <select class="form-control">
+              <option>I can't do it</option>
+              <option>I can do it with help</option>
+              <option>I can do it with ease</option>
+            </select>
+          </td>
+          <td>
+            <select class="form-control">
+              <option>I hate it</option>
+              <option>I don't like it</option>
+              <option>I'm neutral</option>
+              <option>I like it</option>
+              <option>I love it</option>
+            </select>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
+
