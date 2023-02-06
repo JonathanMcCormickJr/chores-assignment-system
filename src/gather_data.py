@@ -26,9 +26,30 @@ def survey_family_member(name):
     member_preferences = []
     print(f"Surveying {name}:")
     for chore in chores:
-        importance = int(input(f"How important do you think {chore} is on a scale of 1 to 5? "))
-        competence = int(input(f"How competent do you think you would be at {chore} on a scale of 1 to 5? "))
-        comfort = int(input(f"How comfortable would you be with being responsible for {chore} on a scale of 1 to 5? "))
+        while True:
+            try:
+                importance = int(input(f"How important do you think {chore} is on a scale of 1 to 5? "))
+                if importance < 1 or importance > 5:
+                    raise ValueError
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number between 1 and 5.")
+        while True:
+            try:
+                competence = int(input(f"How competent do you think you would be at {chore} on a scale of 1 to 5? "))
+                if competence < 1 or competence > 5:
+                    raise ValueError
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number between 1 and 5.")
+        while True:
+            try:
+                comfort = int(input(f"How comfortable would you be with being responsible for {chore} on a scale of 1 to 5? "))
+                if comfort < 1 or comfort > 5:
+                    raise ValueError
+                break
+            except ValueError:
+                print("Invalid input. Please enter a number between 1 and 5.")
         member_preferences.append([name, chore, importance, competence, comfort])
     return member_preferences
 
