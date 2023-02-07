@@ -1,8 +1,68 @@
-<!-- analytics.html -->
-
 {% extends "base.html" %}
 
 {% block content %}
   <h1>Analytics</h1>
-  <p>This is our analytics page.</p>
+  <div id="importance-container"></div>
+  <div id="competence-container"></div>
+  <div id="comfort-container"></div>
+  <div id="correlation-container"></div>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    // Define data
+    var importanceData = [{
+      type: "box",
+      y: [5, 4, 7, 6, 8, 3, 9],
+      boxpoints: "all",
+      jitter: 0.3,
+      pointpos: -1.8,
+      name: "Importance"
+    }];
+
+    var competenceData = [{
+      type: "box",
+      y: [6, 7, 5, 8, 4, 9, 3],
+      boxpoints: "all",
+      jitter: 0.3,
+      pointpos: -1.8,
+      name: "Competence"
+    }];
+
+    var comfortData = [{
+      type: "box",
+      y: [7, 6, 9, 5, 8, 3, 4],
+      boxpoints: "all",
+      jitter: 0.3,
+      pointpos: -1.8,
+      name: "Comfort"
+    }];
+
+    var correlationData = [{
+      x: importanceData[0].y,
+      y: competenceData[0].y,
+      type: "scatter",
+      mode: "markers",
+      name: "Importance vs Competence"
+    }, {
+      x: importanceData[0].y,
+      y: comfortData[0].y,
+      type: "scatter",
+      mode: "markers",
+      name: "Importance vs Comfort"
+    }, {
+      x: competenceData[0].y,
+      y: comfortData[0].y,
+      type: "scatter",
+      mode: "markers",
+      name: "Competence vs Comfort"
+    }];
+
+    // Create box plots for importance, competence, and comfort
+    Plotly.newPlot("importance-container", importanceData);
+    Plotly.newPlot("competence-container", competenceData);
+    Plotly.newPlot("comfort-container", comfortData);
+
+    // Create scatter plot for correlations
+    Plotly.newPlot("correlation-container", correlationData);
+  </script>
 {% endblock %}
