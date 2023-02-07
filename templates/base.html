@@ -11,12 +11,29 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
 
+    
+    
+    
+
+    <!-- Dark/Ligh mode auto-assign -->
+  {% if mode == 'dark' %}
+    <!-- Use Dark Mode CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark.css') }}" id="dark-mode-css">
+  {% else %}
+    <!-- Use Light Mode CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/light.css') }}" id="light-mode-css">
+  {% endif %}
+
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="{{ url_for('index') }}">Jonathan's Chores Assignment Analyzer App</a>
+      
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img id="site-logo" src="https://cdn.pixabay.com/photo/2012/04/25/09/09/washing-41825_960_720.png" height=70px width=auto alt="Free Washing Woman vector and picture"/>
+          Chores Assignment System
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
               aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,6 +45,17 @@
           <a class="nav-item nav-link" href="{{ url_for('analytics') }}">Analytics</a>
           <a class="nav-item nav-link" href="{{ url_for('survey') }}">Survey</a>
         </div>
+        
+      </div>
+      <div class="float-right">
+          {% if mode == 'dark' %}
+            <!-- display moon -->
+            <img id="moon" class="float-right" src="https://cdn.pixabay.com/photo/2014/04/02/17/07/full-moon-308007_960_720.png" height=40px width=auto alt="🌙"/>
+            {% else %}
+            <!-- display sun -->
+            <img id="sun" src="https://cdn.pixabay.com/photo/2014/05/21/11/43/the-sun-349394_960_720.png" height=40px width=auto alt="☀️"/>
+          {% endif %}
+            
       </div>
     </nav>
 
@@ -67,5 +95,29 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        {% if mode == 'dark' %}
+          <!-- Use Dark Mode JS -->
+          <script>
+            const moon = document.getElementById("moon");
+            moon.addEventListener("click", function () {
+              moon.style.transform = "rotate(360deg)";
+              setTimeout(function() {
+                moon.style.transform = "rotate(0deg)";
+              }, 500);
+            });
+          </script>
+        {% else %}
+          <!-- Use Light Mode JS -->
+          <script>
+            const sun = document.getElementById("sun");
+            sun.addEventListener("click", function () {
+              sun.style.transform = "rotate(360deg)";
+              setTimeout(function() {
+                sun.style.transform = "rotate(0deg)";
+              }, 500);
+            });
+          </script>
+        {% endif %}
+        
   </body>
 </html>
