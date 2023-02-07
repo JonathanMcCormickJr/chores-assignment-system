@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+select, select:focus, option, option:focus, .form-control, .form-control:focus {
+background-color: #2b2b2b;
+color: white;
+border-color: grey;
+outline: none;
+}
+
+/* The ::selection psudo-element is for when a user selects text */
+::selection {
+  background-color: purple;
+  color: white;
+}
