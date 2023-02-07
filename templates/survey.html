@@ -10,7 +10,7 @@
   <form>
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter your name">
+      <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
     </div>
     <table class="table">
       <thead>
@@ -26,27 +26,30 @@
         <tr>
           <td>{{ chore }}</td>
           <td>
-            <select class="form-control">
-              <option>Not Important</option>
-              <option>Somewhat Important</option>
-              <option>Important</option>
-              <option>Very Important</option>
+            <select class="form-control" required>
+              <option value="" disabled selected hidden> </option>
+              <option value="not_important">Not Important</option>
+              <option value="somewhat_important">Somewhat Important</option>
+              <option value="important">Important</option>
+              <option value="very_important">Very Important</option>
             </select>
           </td>
           <td>
-            <select class="form-control">
-              <option>I can't do it</option>
-              <option>I can do it with help</option>
-              <option>I can do it with ease</option>
+            <select class="form-control" required>
+              <option value="" disabled selected hidden> </option>
+              <option value="cant_do_it">I can't do it</option>
+              <option value="need_help">I can do it with help</option>
+              <option value="can_do_it_easily">I can do it with ease</option>
             </select>
           </td>
           <td>
-            <select class="form-control">
-              <option>I hate it</option>
-              <option>I don't like it</option>
-              <option>I'm neutral</option>
-              <option>I like it</option>
-              <option>I love it</option>
+            <select class="form-control" required>
+              <option value="" disabled selected hidden> </option>
+              <option value="hate_it">I hate it</option>
+              <option value="dont_like_it">I don't like it</option>
+              <option value="neutral">I'm neutral</option>
+              <option value="like_it">I like it</option>
+              <option value="love_it">I love it</option>
             </select>
           </td>
         </tr>
