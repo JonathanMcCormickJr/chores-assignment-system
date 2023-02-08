@@ -1,3 +1,5 @@
+/* dark.css */
+
 body {
   background-color: black;
   color: white;
@@ -9,9 +11,24 @@ color: white;
 border-color: grey;
 outline: none;
 }
+/*
+option:hover {
+    background-color: #7a006a;
+    color: white;
+}
+*/
 
 /* The ::selection psudo-element is for when a user selects text */
 ::selection {
   background-color: purple;
   color: white;
+}
+
+.talk-bubble {
+    background: #4f4f4f;
+    color: white;
+}
+
+.talk-bubble:after {
+    border-top-color: #4f4f4f;
 }
