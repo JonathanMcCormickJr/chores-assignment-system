@@ -1,4 +1,15 @@
+/* light.css */
+
 body {
-  background-color: white;
+  background-color: #ededed;
   color: black;
+}
+
+.talk-bubble {
+    background: white;
+    color: black;
+}
+
+.talk-bubble:after {
+    border-top-color: #888888;
 }
