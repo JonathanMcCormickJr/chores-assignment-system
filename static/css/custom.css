@@ -1,3 +1,5 @@
+/* custom.css */
+
 .container {
     padding: 20px;
 }
@@ -24,3 +26,31 @@
   transition: transform 1s;
 }
 
+/* Speech bubble */
+
+.talk-bubble-container {
+  position: relative;
+}
+
+.talk-bubble {
+    position: relative;
+    font-family: cursive;
+    margin: 0.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    box-shadow: 2px 2px 2px 0 #888888;
+}
+
+.talk-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 61.803398875%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -20px;
+}
