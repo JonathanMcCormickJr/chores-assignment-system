@@ -1,9 +1,11 @@
 from flask import Flask, render_template
 from datetime import datetime
 import pytz
+import random
 
 app = Flask(__name__)
 app.debug = True
+
 
 # DARK MODE AUTO-ASSIGN
 
@@ -15,7 +17,7 @@ def get_mode():
         now = datetime.now(new_hampshire_tz)
         current_time_nh = int(now.strftime("%H%M%S"))
         return not 60000 < current_time_nh < 180000  # Use IRL
-        #return 60000 < current_time_nh < 180000  # Use ONLY for testing
+        return 60000 < current_time_nh < 180000  # Use ONLY for testing
 
     if is_nighttime():
         return 'dark'
@@ -60,7 +62,17 @@ def survey():
         "Cleaning the car(s)",
         "Pet care"
     ]
-    return render_template('survey.html', mode=mode, chores=chores)
+
+    # Stuff for DEBUGGING
+    names             = ['Emma', 'Olivia', 'Ava', 'Isabella', 'Sophia', 'Mia', 'Charlotte', 'Amelia', 'Harper', 'Evelyn', 'Abigail', 'Emily', 'Elizabeth', 'Avery', 'Sofia', 'Ella', 'Madison', 'Scarlett', 'Victoria', 'Aria', 'Grace', 'Chloe', 'Camila', 'Penelope', 'Riley', 'Nora', 'Lily', 'Eleanor', 'Hazel', 'Aubrey']
+    importance_levels = ['not_important', 'somewhat_important', 'important', 'very_important']
+    competence_levels = ["cant_do_it", "need_help", "can_do_it_easily"]
+    comfort_levels    = ["hate_it", "dont_like_it", "neutral", "like_it", "love_it"]
+
+    if app.debug == True:
+        return render_template('survey.html', mode=mode, chores=chores, DEBUG=app.debug, random_name=random.choice(names), random_importance=random.choice(importance_levels), random_competence=random.choice(competence_levels), random_comfort=random.choice(comfort_levels))
+    else:
+        return render_template('survey.html', mode=mode, chores=chores, DEBUG=app.debug)
 
 
 if __name__ == "__main__":
