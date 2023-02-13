@@ -3,7 +3,7 @@ This is a data-driven system for optimizing chore assignments in a family or oth
 
 Framework: Flask
 
-**NOTE: This is a work in progress**
+**NOTE: This is a work in progress**. The latest verison of my work on this can be found at https://github.com/LiberlandHacker/chores-assignment-system-DEV
 
 On Replit, the name for this project is `MuddyLightgrayMiddleware`
 
