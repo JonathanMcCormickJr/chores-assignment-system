@@ -5,7 +5,7 @@ Framework: Flask
 
 **NOTE: This is a work in progress**. The latest verison of my work on this can be found at https://github.com/LiberlandHacker/chores-assignment-system-DEV
 
-On Replit, the name for this project is `MuddyLightgrayMiddleware`
+On Replit, the name for this project is `chores-assignment-system-DEV`
 
 ![image](https://user-images.githubusercontent.com/67705789/217353932-dbcbdd79-bb03-4023-9bd2-fb12942607e7.png)
 
