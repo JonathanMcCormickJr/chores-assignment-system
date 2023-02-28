@@ -13,3 +13,5 @@ On Replit, the name for this project is `chores-assignment-system-DEV`
 ![image](https://user-images.githubusercontent.com/67705789/217353853-d9eeb546-8a71-4a7d-99c7-ea4f377e8b40.png)
 
 ![image](https://user-images.githubusercontent.com/67705789/217704744-1f6cf346-3079-41bc-8f4a-2f005482e60b.png)
+
+![image](https://user-images.githubusercontent.com/67705789/221759010-0a02f0ae-c61b-40eb-a493-5db6ea5f7687.png)
