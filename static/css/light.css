@@ -13,3 +13,23 @@ body {
 .talk-bubble:after {
     border-top-color: #888888;
 }
+
+pre.mode {
+    color: black;
+}
+
+hr.mode {
+    border: 1px solid #c2c2c2;
+} 
+
+.importance_color {
+    color: #c40303;
+}
+
+.competence_color {
+    color: #0303bf;
+}
+
+.comfort_color {
+    color: #949400;
+}
