@@ -7,15 +7,26 @@
 <p>This is our analytics page.</p>
 
 <!-- Charts section -->
-<h2>Charts</h2>
-<div id="chartsContainer"></div>
-<p>Hmmm, No charts yet....</p>
-<!-- Graphs section -->
-<h2>Graphs</h2>
-<div id="graphsContainer"></div>
-<p>Hmmm, No charts yet....</p>
+<h2>Chores</h2>
+<b>For each chore, which people are best suited for it?</b>
+<div id="chartsContainer">
+    <p>{{ sorted_rankings | safe }}</p>
+</div>
+
+
 <!-- Text Summaries section -->
-<h2>Text Summaries</h2>
+<h2>Tasks</h2>
 <div id="textSummariesContainer"></div>
-<p>Hmmm, No charts yet....</p>
+<ol>
+    {% for task in tasks: %}
+    <li>{{ task }}</li>
+    {% endfor %}
+</ol>
+
+<h2>People</h2>
+<ul>
+    {% for person in persons: %}
+    <li>{{ person }}</li>
+    {% endfor %}
+</ul>
 {% endblock %}
