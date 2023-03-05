@@ -1,5 +1,9 @@
 /* custom.css */
 
+p {
+    white-space: pre;
+}
+
 .container {
     padding: 20px;
 }
@@ -7,6 +11,11 @@
 .float-right {
     display: inline-block;
     text-align: right;
+}
+
+.float-left {
+    display: inline-block;
+    text-align: left;
 }
 /* FIGURE THIS OUT LATER with float-right */
 
@@ -54,3 +63,8 @@
     margin-left: -10px;
     margin-bottom: -20px;
 }
+
+
+
+
+
