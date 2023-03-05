@@ -1,3 +1,4 @@
+<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,14 +45,21 @@
         
       </div>
       <div class="float-right">
+        <div id="time-and-date" class="float-left">
+          <span id="time" style="color:white">| local time |</span>
+          <br>
+          <span id="24hour" style="color:white">| military time |</span>
+          <br>
+          <b><span id="date" style="color:white">| date |</span></b>
+          <br>
+        </div>
           {% if mode == 'dark' %}
             <!-- display moon -->
-            <img id="moon" class="float-right" src="https://cdn.pixabay.com/photo/2014/04/02/17/07/full-moon-308007_960_720.png" height=40px width=auto alt="🌙"/>
+            <img id="moon" class="float-right" src="https://cdn.pixabay.com/photo/2014/04/02/17/07/full-moon-308007_960_720.png" height=75px width=auto alt="🌙"/>
             {% else %}
             <!-- display sun -->
-            <img id="sun" src="https://cdn.pixabay.com/photo/2014/05/21/11/43/the-sun-349394_960_720.png" height=40px width=auto alt="☀️"/>
+            <img id="sun" src="https://cdn.pixabay.com/photo/2014/05/21/11/43/the-sun-349394_960_720.png" height=75px width=auto alt="☀️"/>
           {% endif %}
-            
       </div>
     </nav>
 
@@ -91,6 +99,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script>
+            const nh = document.getElementById("nh-shape");
+            nh.addEventListener("click", function () {
+              nh.style.transform = "rotate(360deg)";
+              setTimeout(function() {
+                nh.style.transform = "rotate(0deg)";
+              }, 500);
+            });
+        </script>
         {% if mode == 'dark' %}
           <!-- Use Dark Mode JS -->
           <script>
@@ -114,6 +131,21 @@
             });
           </script>
         {% endif %}
+        <script>
+          function displayTime() {
+            var date = new Date();
+            var time = date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+            var twentyFourHour = date.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false}) + " (24hr) ";
+            var year = date.getFullYear();
+            var month = ("0" + (date.getMonth() + 1)).slice(-2);
+            var day = ("0" + date.getDate()).slice(-2);
+            var dateString = year + "/" + month + "/" + day;
+            document.getElementById("date").innerHTML = dateString;
+            document.getElementById("time").innerHTML = time;
+            document.getElementById("24hour").innerHTML = twentyFourHour;
+          }
         
+          setInterval(displayTime, 1000);
+        </script>
   </body>
 </html>
