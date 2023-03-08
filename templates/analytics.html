@@ -19,14 +19,14 @@
 <div id="textSummariesContainer"></div>
 <ol>
     {% for task in tasks: %}
-    <li>{{ task }}</li>
+    <li>{{ task | safe }}</li>
     {% endfor %}
 </ol>
 
 <h2>People</h2>
 <ul>
     {% for person in persons: %}
-    <li>{{ person }}</li>
+    <li>{{ person | safe }}</li>
     {% endfor %}
 </ul>
 {% endblock %}
