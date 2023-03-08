@@ -27,22 +27,9 @@ def get_mode():
 
 # Assign app-wide variables
 chores = [
-    "kitchen",
-    "sweeping",
-    "laundry",
-    "bathrooms",
-    "trash",
-    "mowing",
-    "gardening",
-    "cooking",
-    "mirrors",
-    "decluttering",
-    "cleaning_cars",
-    "pets_care",
-    "cupboards",
-    "linen_closets",
-    "coat_closet",
-    "TV/fridge_top"
+    "Clean the Kitchen",
+    "Sweep the Floors",
+    "Do the Laundry"
 ]
 
 # Pages
@@ -74,8 +61,11 @@ def about():
 def analytics():
     mode = get_mode()
 
-    with open('data/responses.json') as f:
-        responses = json.load(f)
+    try:
+        with open('data/responses.json') as f:
+            responses = json.load(f)
+    except:
+        return render_template("analytics.html", mode=mode, sorted_rankings="<code>Internal error: No data could be retrieved.</code><p>In order to fix this, you can be the first to </p><a href='/survey'><button class='btn btn-primary'>Take the survey</button></a>", tasks=["<code>Internal error</code>"], persons=["<code>Internal error</code>"])
     
     # Use defaultdict to simplify the process of populating scores dictionary
     persons = []
@@ -114,7 +104,7 @@ def analytics():
         if head_string not in final_data:
             final_data += (head_string)
 
-        final_data += f"<h3>{i[1]}</h3><p><b>Overall:</b> {round(i[2],2)}</p><p><span class='importance_color'><b>Importance:</b> {round(i[3],2)};</span>     <span class='competence_color'><b>Competence:</b> {round(i[4],2)};</span>     <span class='comfort_color'><b>Comfort:</b> {round(i[5],2)};</span> </p>"
+        final_data += f"<h3>{i[1]}</h3><p><b>Overall:</b> {round(i[2],2)}</p><p class='pre'><span class='importance_color'><b>Importance:</b> {round(i[3],2)};</span>     <span class='competence_color'><b>Competence:</b> {round(i[4],2)};</span>     <span class='comfort_color'><b>Comfort:</b> {round(i[5],2)};</span> </p>"
         # RESUME HERE by adding bar chart
         def horizontal_bar(importance, competence, comfort):
             num_visual_units = 60
